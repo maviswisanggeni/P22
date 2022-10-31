@@ -1,3 +1,4 @@
+import 'package:erigo/screen/login/Login.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,14 @@ class _RegisterBottomState extends State<RegisterBottom> {
             SizedBox(
               height: 35,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ),
+                  );
+                },
                 child: Text(
                     'Login',
                     style: TextStyle(

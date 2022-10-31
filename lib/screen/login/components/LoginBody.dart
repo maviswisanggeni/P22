@@ -84,6 +84,19 @@ class _LoginBodyState extends State<LoginBody> {
                     ],
                   ),
                 ),
+                // forgot password
+                Container(
+                  margin: EdgeInsets.only(bottom: 50),
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Styles.blackColor,
+                    ),
+                  ),
+                ),
+
                 // login bottom
                 LoginBottom(),
               ],

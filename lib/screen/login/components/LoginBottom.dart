@@ -1,3 +1,4 @@
+import 'package:erigo/screen/register/Register.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,14 @@ class _LoginBottomState extends State<LoginBottom> {
             SizedBox(
               height: 30,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RegisterPage(),
+                    ),
+                  );
+                },
                 child: Text(
                     'Create Account',
                     style: TextStyle(
