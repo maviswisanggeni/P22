@@ -1,4 +1,5 @@
 import 'package:erigo/screen/home/Home.dart';
+import 'package:erigo/screen/register/Register.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
 
