@@ -1,16 +1,21 @@
-# erigo
+# 🎃E R I G O
 
-A new Flutter project.
+Project PAS Flutter 2022
 
-## Getting Started
+#### Contributor :
+<div>
+  <img src="https://k.top4top.io/p_2495i9b0y1.png" width="50" height="50" alt="M22" />
+  <img src="https://l.top4top.io/p_249578i132.png" width="50" height="50" alt="Jojo" />
+</div>
 
-This project is a starting point for a Flutter application.
+<br>
 
-A few resources to get you started if this is your first Flutter project:
+``` diff
++ Mavis Daffa Wisanggeni
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
++ Jolang Alif Khan
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<br>
+
+<img src="https://c.top4top.io/p_24955z9qm1.gif" width="100%" height="400" />
