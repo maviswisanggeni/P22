@@ -37,7 +37,7 @@ class _LoginButtonState extends State<LoginButton> {
           shadowColor: Styles.blackColor,
           elevation: 5,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(0),
+            borderRadius: BorderRadius.circular(15),
             side: BorderSide(
               color: Styles.blackColor,
               width: 1,
