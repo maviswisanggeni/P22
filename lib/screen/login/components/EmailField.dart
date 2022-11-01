@@ -16,10 +16,10 @@ class _EmailFieldState extends State<EmailField> {
       height: 70,
       decoration: BoxDecoration(
         color: Styles.whiteColor,
-        borderRadius: BorderRadius.circular(0),
+        borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.25),
             blurRadius: 4,
             offset: const Offset(0, 4), // changes position of shadow
           ),
@@ -32,10 +32,10 @@ class _EmailFieldState extends State<EmailField> {
               color: Styles.blackColor,
               width: 1,
             ),
-            borderRadius: BorderRadius.circular(0),
+            borderRadius: BorderRadius.circular(15),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(0),
+            borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               color: Styles.blackColor,
               width: 1,
@@ -50,7 +50,7 @@ class _EmailFieldState extends State<EmailField> {
             color: Colors.grey,
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(0),
+            borderRadius: BorderRadius.circular(15),
           ),
         ),
       ),
