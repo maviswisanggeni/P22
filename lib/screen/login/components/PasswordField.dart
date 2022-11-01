@@ -19,7 +19,7 @@ class _PasswordFieldState extends State<PasswordField> {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.25),
             blurRadius: 4,
             offset: const Offset(0, 4), // changes position of shadow
           ),
