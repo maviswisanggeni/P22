@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         primaryColor: Styles.primaryColor,
       ),
-      home: LoginPage(),
+      home: MyHomePage(),
     );
   }
 }
