@@ -1,3 +1,4 @@
+import 'package:erigo/screen/home/components/HomeBody.dart';
 import 'package:erigo/screen/login/Login.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(
-        child: LoginPage(),
+        child: HomeBody(),
       ),
     );
   }
