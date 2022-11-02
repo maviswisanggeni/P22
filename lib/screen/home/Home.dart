@@ -1,4 +1,4 @@
-import 'package:erigo/screen/home/components/BottomNavBar.dart';
+import 'package:erigo/screen/login/Login.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,7 +13,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(
-        child: MyBottomNavBar(),
+        child: LoginPage(),
       ),
     );
   }
