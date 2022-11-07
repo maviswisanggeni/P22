@@ -1,3 +1,4 @@
+import 'package:erigo/screen/home/components/HomePage.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +15,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   int _selectedIndex = 0;
 
   List<Widget> tabItems = [
-    Center(child: Text('Home')),
+    HomePage(),
     Center(child: Text('Search'),),
     Center(child: Text('Wishlist'),),
     Center(child: Text('Profile'),),
