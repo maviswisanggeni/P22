@@ -1,3 +1,4 @@
+import 'package:erigo/screen/profile/Profile.dart';
 import 'package:erigo/screen/home/components/HomePage.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
     HomePage(),
     Center(child: Text('Search'),),
     Center(child: Text('Wishlist'),),
-    Center(child: Text('Profile'),),
+    Profile(),
   ];
 
   @override
