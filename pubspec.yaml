@@ -41,6 +41,7 @@ dependencies:
   flutter_native_splash: ^2.2.13
   flutter_svg: ^1.1.6
   salomon_bottom_bar: ^3.3.1
+  group_list_view: ^1.1.1
 
 dev_dependencies:
   flutter_test:
