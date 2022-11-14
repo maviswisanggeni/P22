@@ -1,7 +1,11 @@
+import 'package:erigo/screen/home/components/CoomingSoon.dart';
 import 'package:erigo/screen/home/components/HomeAppBar.dart';
 import 'package:erigo/screen/home/components/HomeBanner.dart';
 import 'package:erigo/screen/home/components/HomeHeroProduct.dart';
 import 'package:erigo/screen/home/components/HomeNewArrivals.dart';
+import 'package:erigo/screen/home/components/HomeOuter.dart';
+import 'package:erigo/screen/home/components/HomeShirt.dart';
+import 'package:erigo/screen/home/components/HomeTShirt.dart';
 import 'package:erigo/screen/home/models/AllData.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +26,11 @@ class _HomePageState extends State<HomePage> {
     "Pants",
     "Accessories",
     "Footwear",
+  ];
+
+  List allProducts = [
+    HomeNewArrivals(),
+    HomeHeroProduct(),
   ];
 
   int current = 0;
@@ -78,6 +87,36 @@ class _HomePageState extends State<HomePage> {
                       onTap: () {
                         setState(() {
                           current = index;
+                          if (index == 0) {
+                            allProducts = [
+                              HomeNewArrivals(),
+                              HomeHeroProduct(),
+                            ];
+                          } else if (index == 1) {
+                            allProducts = [
+                              HomeTShirt(),
+                            ];
+                          } else if (index == 2) {
+                            allProducts = [
+                              HomeOuter(),
+                            ];
+                          } else if (index == 3) {
+                            allProducts = [
+                              HomeShirt(),
+                            ];
+                          } else if (index == 4) {
+                            allProducts = [
+                              CoomingSoon(),
+                            ];
+                          } else if (index == 5) {
+                            allProducts = [
+                              CoomingSoon(),
+                            ];
+                          } else if (index == 6) {
+                            allProducts = [
+                              CoomingSoon(),
+                            ];
+                          }
                         });
                       },
                       child: Container(
@@ -111,8 +150,7 @@ class _HomePageState extends State<HomePage> {
                   }
                 ),
               ),
-              HomeNewArrivals(),
-              HomeHeroProduct(),
+              ...allProducts,
             ],
           ),
         ),
