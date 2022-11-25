@@ -1,3 +1,4 @@
+import 'package:erigo/screen/detail-page/DetailPage.dart';
 import 'package:erigo/screen/home/models/AllData.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +64,9 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(
+                        data: newArrivals[index],
+                      )));
                     },
                     child: Container(
                       decoration: BoxDecoration(
