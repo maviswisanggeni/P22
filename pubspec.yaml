@@ -44,6 +44,7 @@ dependencies:
   group_list_view: ^1.1.1
   carousel_slider: ^4.1.1
   readmore: ^2.2.0
+  sqflite: ^2.2.0+3
 
 dev_dependencies:
   flutter_test:
