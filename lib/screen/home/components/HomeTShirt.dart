@@ -1,16 +1,15 @@
-import 'package:erigo/screen/detail-page/DetailPage.dart';
 import 'package:erigo/screen/home/models/AllData.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
 
-class HomeNewArrivals extends StatefulWidget {
-  const HomeNewArrivals({Key? key}) : super(key: key);
+class HomeTShirt extends StatefulWidget {
+  const HomeTShirt({Key? key}) : super(key: key);
 
   @override
-  State<HomeNewArrivals> createState() => _HomeNewArrivalsState();
+  State<HomeTShirt> createState() => _HomeTShirtState();
 }
 
-class _HomeNewArrivalsState extends State<HomeNewArrivals> {
+class _HomeTShirtState extends State<HomeTShirt> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +23,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'New Arrivals',
+                  'T-Shirt',
                   style: TextStyle(
                     color: Styles.blackColor,
                     fontSize: 20,
@@ -53,7 +52,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                 padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: newArrivals.length,
+                itemCount: tShirt.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 20,
@@ -64,9 +63,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(
-                        data: newArrivals[index],
-                      )));
+
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -83,7 +80,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     image: DecorationImage(
-                                      image: AssetImage(newArrivals[index].image),
+                                      image: AssetImage(tShirt[index].image),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -97,28 +94,6 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                                       children: [
                                         Container(
                                           alignment: Alignment.center,
-                                          width: 50,
-                                          height: 30,
-                                          decoration: BoxDecoration(
-                                            color: Styles.primaryColor,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(5),
-                                            ),
-                                          ),
-                                          child: Text(
-                                            newArrivals[index].label.toUpperCase(),
-                                            style: TextStyle(
-                                              color: Styles.whiteColor,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 5,
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
                                           width: 40,
                                           height: 30,
                                           decoration: BoxDecoration(
@@ -128,7 +103,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                                             ),
                                           ),
                                           child: Text(
-                                            newArrivals[index].discount,
+                                            tShirt[index].discount,
                                             style: TextStyle(
                                               color: Styles.whiteColor,
                                               fontSize: 10,
@@ -147,7 +122,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                               bottom: 4,
                             ),
                             child: Text(
-                              newArrivals[index].title,
+                              tShirt[index].title,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 color: Styles.blackColor,
@@ -161,7 +136,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Rp. ${newArrivals[index].statingPrice.toString()}00',
+                                    'Rp. ${tShirt[index].statingPrice.toString()}00',
                                     style: TextStyle(
                                       decoration: TextDecoration.lineThrough,
                                       height: 1,
@@ -171,7 +146,7 @@ class _HomeNewArrivalsState extends State<HomeNewArrivals> {
                                     ),
                                   ),
                                   Text(
-                                    'Rp. ${newArrivals[index].finalPrice.toString()}00',
+                                    'Rp. ${tShirt[index].finalPrice.toString()}00',
                                     style: TextStyle(
                                       height: 1,
                                       color: Styles.secondaryColor,
