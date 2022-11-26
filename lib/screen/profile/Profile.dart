@@ -1,3 +1,4 @@
+import 'package:erigo/screen/login/Login.dart';
 import 'package:erigo/screen/profile/components/EditProfile.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
@@ -279,7 +280,14 @@ class Profile extends StatelessWidget {
                           padding: EdgeInsets.only(
                               top: 10, left: 10, right: 10, bottom: 10),
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                ),
+                              );
+                            },
                             style: ButtonStyle(
                               elevation: MaterialStateProperty.all(0),
                               backgroundColor: MaterialStateColor.resolveWith(

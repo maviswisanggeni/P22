@@ -1,5 +1,6 @@
 import 'package:erigo/screen/profile/Profile.dart';
 import 'package:erigo/screen/home/components/HomePage.dart';
+import 'package:erigo/screen/search/searchpage.dart';
 import 'package:erigo/screen/wishlist-page/wishlist_page.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
 
   List<Widget> tabItems = [
     HomePage(),
-    Center(child: Text('Search'),),
+    searchpage(),
     WishlistPage(),
     Profile(),
   ];
