@@ -3,6 +3,8 @@ import 'package:erigo/screen/detail-page/components/back_button.dart';
 import 'package:erigo/screen/detail-page/components/detail_product_text.dart';
 import 'package:erigo/screen/home/components/HomeNewArrivals.dart';
 import 'package:erigo/screen/home/models/AllData.dart';
+import 'package:erigo/screen/wishlist-page/models/wishlist_db.dart';
+import 'package:erigo/screen/wishlist-page/models/wishlist_model.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,9 +19,43 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  bool checkExist = false;
+  Color colorChecked = Colors.grey;
   int _current = 0;
   int _quantity = 1;
   final CarouselController _controller = CarouselController();
+
+  Future read() async {
+    checkExist = await WishlistDatabase.instance.read(widget.data.title);
+    setState(() {});
+  }
+
+  Future addData() async {
+    var wishlist;
+    wishlist = WishlistModel(
+      title: widget.data.title.toString(),
+      price: widget.data.finalPrice.toString(),
+      image: widget.data.image.toString(),
+    );
+    await WishlistDatabase.instance.create(wishlist);
+    setState(() {
+      checkExist = true;
+    });
+  }
+
+  Future deleteData() async {
+    await WishlistDatabase.instance.delete(widget.data.title);
+    setState(() {
+      checkExist = false;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    read();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +80,17 @@ class _DetailPageState extends State<DetailPage> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
+                onPressed: () {
+                  checkExist
+                      ? deleteData()
+                      : addData();
+                },
+                icon: checkExist ? SvgPicture.asset(
+                  'assets/icons/heart-fill-icon.svg',
+                  color: Colors.red,
+                  width: 26,
+                  height: 26,
+                ) : SvgPicture.asset(
                   'assets/icons/heart-outline-icon.svg',
                   color: Colors.black,
                   width: 26,

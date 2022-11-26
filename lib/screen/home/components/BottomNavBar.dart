@@ -1,5 +1,6 @@
 import 'package:erigo/screen/profile/Profile.dart';
 import 'package:erigo/screen/home/components/HomePage.dart';
+import 'package:erigo/screen/wishlist-page/wishlist_page.dart';
 import 'package:erigo/utils/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,7 +19,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   List<Widget> tabItems = [
     HomePage(),
     Center(child: Text('Search'),),
-    Center(child: Text('Wishlist'),),
+    WishlistPage(),
     Profile(),
   ];
 
@@ -30,7 +31,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Styles.primaryColor,
+      backgroundColor: Styles.whiteColor,
       body: Center(
         child: tabItems[_selectedIndex],
       ),
