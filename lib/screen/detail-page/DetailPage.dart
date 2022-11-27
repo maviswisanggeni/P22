@@ -3,6 +3,7 @@ import 'package:erigo/screen/detail-page/components/back_button.dart';
 import 'package:erigo/screen/detail-page/components/detail_product_text.dart';
 import 'package:erigo/screen/home/components/HomeNewArrivals.dart';
 import 'package:erigo/screen/home/models/AllData.dart';
+import 'package:erigo/screen/payment-page/payment_page.dart';
 import 'package:erigo/screen/wishlist-page/models/wishlist_db.dart';
 import 'package:erigo/screen/wishlist-page/models/wishlist_model.dart';
 import 'package:erigo/utils/Constant.dart';
@@ -21,8 +22,9 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   bool checkExist = false;
   Color colorChecked = Colors.grey;
-  int _current = 0;
-  int _quantity = 1;
+  int current = 0;
+  int quantity = 1;
+  String size = '';
   final CarouselController _controller = CarouselController();
 
   Future read() async {
@@ -81,21 +83,21 @@ class _DetailPageState extends State<DetailPage> {
               ),
               child: IconButton(
                 onPressed: () {
-                  checkExist
-                      ? deleteData()
-                      : addData();
+                  checkExist ? deleteData() : addData();
                 },
-                icon: checkExist ? SvgPicture.asset(
-                  'assets/icons/heart-fill-icon.svg',
-                  color: Colors.red,
-                  width: 26,
-                  height: 26,
-                ) : SvgPicture.asset(
-                  'assets/icons/heart-outline-icon.svg',
-                  color: Colors.black,
-                  width: 26,
-                  height: 26,
-                ),
+                icon: checkExist
+                    ? SvgPicture.asset(
+                        'assets/icons/heart-fill-icon.svg',
+                        color: Colors.red,
+                        width: 26,
+                        height: 26,
+                      )
+                    : SvgPicture.asset(
+                        'assets/icons/heart-outline-icon.svg',
+                        color: Colors.black,
+                        width: 26,
+                        height: 26,
+                      ),
               ),
             ),
             Container(
@@ -121,7 +123,20 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PaymentPage(
+                      title: widget.data.title,
+                      size: current == 0 ? 'S' : current == 1 ? 'M' : current == 2 ? 'L' : current == 3 ? 'XL' : 'XXL',
+                      price: widget.data.finalPrice,
+                      quantity: quantity,
+                      image: widget.data.image,
+                    ),
+                  ),
+                );
+              },
               child: Container(
                 alignment: Alignment.center,
                 height: 60,
@@ -344,7 +359,8 @@ class _DetailPageState extends State<DetailPage> {
                                       return GestureDetector(
                                         onTap: () {
                                           setState(() {
-                                            _current = index;
+                                            current = index;
+                                            size = widget.data.size[index];
                                           });
                                         },
                                         child: Container(
@@ -360,7 +376,7 @@ class _DetailPageState extends State<DetailPage> {
                                             decoration: BoxDecoration(
                                               border: Border.all(
                                                 width: 1,
-                                                color: _current == index
+                                                color: current == index
                                                     ? Colors.black
                                                     : Colors.black12,
                                               ),
@@ -370,7 +386,7 @@ class _DetailPageState extends State<DetailPage> {
                                             child: Text(
                                               widget.data.size[index],
                                               style: TextStyle(
-                                                color: _current == index
+                                                color: current == index
                                                     ? Colors.black
                                                     : Colors.black38,
                                                 fontSize: 18,
@@ -432,8 +448,8 @@ class _DetailPageState extends State<DetailPage> {
                                             GestureDetector(
                                               onTap: () {
                                                 setState(() {
-                                                  if (_quantity > 1) {
-                                                    _quantity--;
+                                                  if (quantity > 1) {
+                                                    quantity--;
                                                   }
                                                 });
                                               },
@@ -460,7 +476,7 @@ class _DetailPageState extends State<DetailPage> {
                                                 horizontal: 15,
                                               ),
                                               child: Text(
-                                                _quantity.toString(),
+                                                quantity.toString(),
                                                 style: TextStyle(
                                                   color: Styles.secondaryColor,
                                                   fontSize: 18,
@@ -471,7 +487,7 @@ class _DetailPageState extends State<DetailPage> {
                                             GestureDetector(
                                               onTap: () {
                                                 setState(() {
-                                                  _quantity++;
+                                                  quantity++;
                                                 });
                                               },
                                               child: Container(
