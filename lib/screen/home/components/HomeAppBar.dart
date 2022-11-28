@@ -1,3 +1,4 @@
+import 'package:erigo/screen/cart-page/cart_page.dart';
 import 'package:erigo/screen/notification-page/notification_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,6 +45,12 @@ class _HomeAppBarState extends State<HomeAppBar> {
               ),
               IconButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CartPage(),
+                    ),
+                  );
                 },
                 icon: SvgPicture.asset(
                   'assets/icons/cart-outline-icon.svg',
