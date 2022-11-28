@@ -42,11 +42,11 @@ class _WishlistPageState extends State<WishlistPage> {
     );
     Widget okButton = TextButton(
         child: Text("Hapus"),
-        onPressed: () async {
+        onPressed: () {
           setState(() {
             isLoading = true;
           });
-          await WishlistDatabase.instance.delete(name);
+          WishlistDatabase.instance.delete(name);
           read();
           setState(() {
             isLoading = false;

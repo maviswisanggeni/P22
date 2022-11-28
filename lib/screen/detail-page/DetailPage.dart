@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:erigo/screen/cart-page/models/cart_db.dart';
+import 'package:erigo/screen/cart-page/models/cart_model.dart';
 import 'package:erigo/screen/detail-page/components/back_button.dart';
 import 'package:erigo/screen/detail-page/components/detail_product_text.dart';
 import 'package:erigo/screen/home/components/HomeNewArrivals.dart';
@@ -21,6 +23,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   bool checkExist = false;
+  bool checkExistCart = false;
   Color colorChecked = Colors.grey;
   int current = 0;
   int quantity = 1;
@@ -29,6 +32,12 @@ class _DetailPageState extends State<DetailPage> {
 
   Future read() async {
     checkExist = await WishlistDatabase.instance.read(widget.data.title);
+    setState(() {});
+  }
+
+  // read CartDatabase
+  Future readCart() async {
+    checkExistCart = await CartDatabase.instance.read(widget.data.title);
     setState(() {});
   }
 
@@ -45,10 +54,33 @@ class _DetailPageState extends State<DetailPage> {
     });
   }
 
+  // add data to CartDatabase
+  Future addDataCart() async {
+    var cart;
+    cart = CartModel(
+      title: widget.data.title.toString(),
+      price: widget.data.finalPrice.toString(),
+      image: widget.data.image.toString(),
+      quantity: quantity.toString(),
+    );
+    await CartDatabase.instance.create(cart);
+    setState(() {
+      checkExistCart = true;
+    });
+  }
+
   Future deleteData() async {
     await WishlistDatabase.instance.delete(widget.data.title);
     setState(() {
       checkExist = false;
+    });
+  }
+
+  // delete data from CartDatabase
+  Future deleteDataCart() async {
+    await CartDatabase.instance.delete(widget.data.title);
+    setState(() {
+      checkExistCart = false;
     });
   }
 
@@ -57,6 +89,7 @@ class _DetailPageState extends State<DetailPage> {
     // TODO: implement initState
     super.initState();
     read();
+    readCart();
   }
 
   @override
@@ -113,13 +146,60 @@ class _DetailPageState extends State<DetailPage> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  // checkExistCart if true show alert then delete data
+                  if (checkExistCart) {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text('Are you sure?'),
+                          content: Text('Do you want to delete this item?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                deleteDataCart();
+                                Navigator.pop(context);
+                              },
+                              child: Text('Delete'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text('Success'),
+                          content: Text('Add to cart success'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                addDataCart();
+                                Navigator.pop(context);
+                              },
+                              child: Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
                 icon: SvgPicture.asset(
-                  'assets/icons/cart-outline-icon.svg',
-                  color: Colors.black,
-                  width: 26,
-                  height: 26,
-                ),
+                        'assets/icons/cart-outline-icon.svg',
+                        color: Colors.black,
+                        width: 26,
+                        height: 26,
+                      ),
               ),
             ),
             GestureDetector(
