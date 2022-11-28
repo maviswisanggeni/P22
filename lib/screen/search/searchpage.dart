@@ -20,31 +20,7 @@ class _searchpageState extends State<searchpage> {
             Row(
               children: [
                 Container(
-                  width: 60,
-                  height: 60,
-                  margin: EdgeInsets.only(
-                    top: 50,
-                    left: 20,
-                  ),
-                  child: IconButton(
-                    padding: EdgeInsets.only(left: 8),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeBody()),
-                      );
-                    },
-                    icon: Icon(Icons.arrow_back_ios),
-                    color: Styles.whiteColor,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Styles.blackColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                ),
-                Container(                                                                                  
-                  width: 250,
+                  width: 345,
                   height: 60,
                   margin: EdgeInsets.only(
                     top: 50,
@@ -53,6 +29,7 @@ class _searchpageState extends State<searchpage> {
                   padding: EdgeInsets.only(left: 20, top: 5),
                   child: TextField(
                     decoration: InputDecoration(
+                      icon: Icon(Icons.search, color: Styles.blackColor),
                       hintText: "Search On Erigo",
                       hintStyle: TextStyle(
                         color: Styles.blackColor,
@@ -89,13 +66,12 @@ class _searchpageState extends State<searchpage> {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
-                    )
-                  ),
+                    )),
                 Container(
                     width: 400,
                     height: 60,
                     margin: EdgeInsets.only(
-                      top: 10,                    
+                      top: 10,
                     ),
                     padding: EdgeInsets.only(top: 5),
                     child: ElevatedButton(
@@ -104,7 +80,8 @@ class _searchpageState extends State<searchpage> {
                         elevation: MaterialStateProperty.all(0),
                         backgroundColor:
                             MaterialStateProperty.all(Color(0xfffafafa)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5),
                           ),
@@ -156,7 +133,8 @@ class _searchpageState extends State<searchpage> {
                           ),
                         ],
                       ),
-                    ))
+                    )
+                  )
               ],
             ),
             Column(
@@ -174,7 +152,8 @@ class _searchpageState extends State<searchpage> {
                         elevation: MaterialStateProperty.all(0),
                         backgroundColor:
                             MaterialStateProperty.all(Color(0xfffafafa)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5),
                           ),
@@ -244,7 +223,8 @@ class _searchpageState extends State<searchpage> {
                         elevation: MaterialStateProperty.all(0),
                         backgroundColor:
                             MaterialStateProperty.all(Color(0xfffafafa)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5),
                           ),
@@ -334,7 +314,8 @@ class _searchpageState extends State<searchpage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 image: DecorationImage(
-                                  image: AssetImage('assets/images/new arrival - erigo knitwear walker grey.png'),
+                                  image: AssetImage(
+                                      'assets/images/new arrival - erigo knitwear walker grey.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -355,7 +336,8 @@ class _searchpageState extends State<searchpage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 image: DecorationImage(
-                                  image: AssetImage('assets/images/new arrival - erigo knitwear latham grey.png'),
+                                  image: AssetImage(
+                                      'assets/images/new arrival - erigo knitwear latham grey.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -376,7 +358,8 @@ class _searchpageState extends State<searchpage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 image: DecorationImage(
-                                  image: AssetImage('assets/images/new arrival - erigo work shirt tesla black.png'),
+                                  image: AssetImage(
+                                      'assets/images/new arrival - erigo work shirt tesla black.png'),
                                   fit: BoxFit.cover,
                                 ),
                               ),

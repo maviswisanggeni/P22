@@ -281,12 +281,44 @@ class Profile extends StatelessWidget {
                               top: 10, left: 10, right: 10, bottom: 10),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
-                                ),
-                              );
+                              // create show dialog and go to login page
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      content: Text(
+                                          "Do you want to logout from your account?"),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Text("Cancel",
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                  color: Styles.blackColor,
+                                                  fontWeight: FontWeight.bold)
+                                                ),
+                                          
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        LoginPage()));
+                                          },
+                                          child: Text("Logout",
+                                          style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontWeight: FontWeight.bold)
+                                                ),
+                                          
+                                        ),
+                                      ],
+                                    );
+                                  });    
                             },
                             style: ButtonStyle(
                               elevation: MaterialStateProperty.all(0),
