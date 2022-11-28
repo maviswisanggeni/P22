@@ -96,9 +96,7 @@ class _searchpageState extends State<searchpage> {
                             margin: EdgeInsets.only(),
                             child: IconButton(
                               padding: EdgeInsets.only(left: 0),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
+                              onPressed: () {},
                               icon: Icon(Icons.history),
                               color: Styles.blackColor,
                             ),
@@ -124,9 +122,7 @@ class _searchpageState extends State<searchpage> {
                             margin: EdgeInsets.only(),
                             child: IconButton(
                               padding: EdgeInsets.only(left: 50),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
+                              onPressed: () {},
                               icon: Icon(Icons.close),
                               color: Styles.blackColor,
                             ),
@@ -235,9 +231,7 @@ class _searchpageState extends State<searchpage> {
                             margin: EdgeInsets.only(),
                             child: IconButton(
                               padding: EdgeInsets.only(left: 0),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
+                              onPressed: () {},
                               icon: Icon(Icons.history),
                               color: Styles.blackColor,
                             ),
@@ -263,9 +257,7 @@ class _searchpageState extends State<searchpage> {
                             margin: EdgeInsets.only(),
                             child: IconButton(
                               padding: EdgeInsets.only(left: 50),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
+                              onPressed: () {},
                               icon: Icon(Icons.close),
                               color: Styles.blackColor,
                             ),
